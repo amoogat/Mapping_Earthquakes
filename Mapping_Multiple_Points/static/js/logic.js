@@ -10,7 +10,9 @@ let cityData = cities;
 // Loops through each city and makes markers
 cityData.forEach(function(city) {
 	console.log(city)
-	L.marker(city.location)
+	L.circleMarker(city.location, {
+        radius: city.population/ 100000
+    })
 	.bindPopup("<h2>" + city.city + ", " + city.state + "</h2> <hr> <h3>Population " + city.population + "</h3>")
   .addTo(map);
 });
